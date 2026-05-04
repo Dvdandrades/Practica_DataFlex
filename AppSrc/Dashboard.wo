@@ -1,0 +1,112 @@
+﻿Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebForm.pkg
+Use cWebButton.pkg
+Use cWebGroup.pkg
+Use cWebSpacer.pkg
+Use cWebHtmlBox.pkg
+Use cWebMenuGroup.pkg
+Use cWebMenuItem.pkg
+Use cWebLabel.pkg
+Use cWebList.pkg
+Use cWebColumn.pkg
+
+Object oDashboard is a cWebView
+    // Registro de rutas 
+    WebRegisterPath ntNavigateForward oSelectEntrenador
+    WebRegisterPath ntNavigateForward oSelectJugador
+    WebRegisterPath ntNavigateForward oSelectPosicion
+    WebRegisterPath ntNavigateForward oSelectEquipo
+    WebRegisterPath ntNavigateForward oSelectLiga
+
+    Set piMaxWidth to 1024
+    Set psCaption to "Dashboard"
+    Set peViewType to vtUndefined
+    Set pbShowCaption to False
+    Set psCSSClass to "Dashboard"
+    
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 24
+        WebSetResponsive piColumnCount rmMobile to 1
+        WebSetResponsive piColumnCount rmTabletPortrait to 16
+    
+        Object oTiles_grp is a cWebGroup
+            Set piColumnSpan to 8
+            Set pbShowBorder to False
+            Set pbShowCaption to False
+            Set piColumnCount to 12
+            Set psCSSClass to "TilesGroup"
+
+            // 1. Tile de Bienvenida
+            Object oWelcomeTile is a cWebHtmlBox
+                Set piColumnSpan to 12
+                Set psCSSClass to "Tile Light"
+                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Bienvenido</div></div>'
+
+                Procedure OnLoad
+                    Send UpdateHTML ('<div class="WebCon_Sizer">' + ;
+                                     '<div class="Tile_Title">Panel de Fútbol</div>' +;
+                                     '<div class="Tile_Subtitle">' - htmlEncode(psUserName(ghoWebSessionManager)) - '</div>' +;
+                                     '</div>')
+                End_Procedure
+            End_Object
+
+            // 2. Tile de Jugadores
+            Object oJugadoresTile is a cWebHtmlBox
+                Set piColumnSpan to 6
+                Set psCSSClass to "Tile Light"
+                Set pbServerOnClick to True
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Jugadores</div><div class="Tile_Subtitle">Plantilla</div></div>'
+                Procedure OnClick String sId String sParam
+                    Send NavigateForward of oSelectJugador oDashboard
+                End_Procedure
+            End_Object
+
+            // 3. Tile de Entrenadores
+            Object oEntrenadoresTile is a cWebHtmlBox
+                Set piColumnSpan to 6
+                Set psCSSClass to "Tile Dark"
+                Set pbServerOnClick to True
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle">Cuerpo Técnico</div></div>'
+                Procedure OnClick String sId String sParam
+                    Send NavigateForward of oSelectEntrenador oDashboard
+                End_Procedure
+            End_Object
+
+            // 4. Tile de Ligas
+            Object oLigasTile is a cWebHtmlBox
+                Set piColumnSpan to 6
+                Set psCSSClass to "Tile LightAlternate"
+                Set pbServerOnClick to True
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Ligas</div><div class="Tile_Subtitle">Competiciones</div></div>'
+                Procedure OnClick String sId String sParam
+                    Send NavigateForward of oSelectLiga oDashboard
+                End_Procedure
+            End_Object
+
+            // 5. Tile de Equipos
+            Object oEquiposTile is a cWebHtmlBox
+                Set piColumnSpan to 6
+                Set psCSSClass to "Tile DarkAlternate"
+                Set pbServerOnClick to True
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Equipos</div><div class="Tile_Subtitle">Clubes</div></div>'
+                Procedure OnClick String sId String sParam
+                    Send NavigateForward of oSelectEquipo oDashboard
+                End_Procedure
+            End_Object
+
+            // 6. Tile de Posiciones
+            Object oPosicionesTile is a cWebHtmlBox
+                Set piColumnSpan to 6
+                Set psCSSClass to "Tile Light"
+                Set pbServerOnClick to True
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Posiciones</div><div class="Tile_Subtitle">Roles</div></div>'
+                Procedure OnClick String sId String sParam
+                    Send NavigateForward of oSelectPosicion oDashboard
+                End_Procedure
+            End_Object
+
+        End_Object // Cierre de oTiles_grp
+    End_Object // Cierre de oWebMainPanel
+
+End_Object // Cierre de oDashboard
