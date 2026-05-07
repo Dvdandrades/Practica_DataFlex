@@ -1,5 +1,5 @@
 Compiling Program: C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\WebApp.src
-Memory Available: 46302687232
+Memory Available: 63066501120
 1>Use AllWebAppClasses.pkg
 Using pre-compiled package ALLWEBAPPCLASSES.PKG
 Including file: AllWebAppClasses.x64.pkd    (C:\Program Files\DataFlex 25.0\Pkg\AllWebAppClasses.x64.pkd)
@@ -172,7 +172,7 @@ Including file: LoginEncryptionKey.inc    (C:\Users\dvdan\Desktop\FutbolWebApp\A
 36416>                    Set psCaption to C_$View
 36417>
 36417>                    Object oSelectEntrenadorItem1 is a cWebMenuItem
-36419>                        Set psCaption to "SelectEntrenador"
+36419>                        Set psCaption to "Entrenador"
 36420>
 36420>                        WebRegisterPath ntNavigateBegin oSelectEntrenador
 36426>
@@ -183,7 +183,7 @@ Including file: LoginEncryptionKey.inc    (C:\Users\dvdan\Desktop\FutbolWebApp\A
 36433>                    End_Object
 36434>
 36434>                    Object oSelectJugadorItem1 is a cWebMenuItem
-36436>                        Set psCaption to "SelectJugador"
+36436>                        Set psCaption to "Jugador"
 36437>
 36437>                        WebRegisterPath ntNavigateBegin oSelectJugador
 36443>
@@ -194,7 +194,7 @@ Including file: LoginEncryptionKey.inc    (C:\Users\dvdan\Desktop\FutbolWebApp\A
 36450>                    End_Object
 36451>
 36451>                    Object oSelectPosicionItem1 is a cWebMenuItem
-36453>                        Set psCaption to "SelectPosicion"
+36453>                        Set psCaption to "Posicion"
 36454>
 36454>                        WebRegisterPath ntNavigateBegin oSelectPosicion
 36460>
@@ -205,7 +205,7 @@ Including file: LoginEncryptionKey.inc    (C:\Users\dvdan\Desktop\FutbolWebApp\A
 36467>                    End_Object
 36468>
 36468>                    Object oSelectEquipoItem1 is a cWebMenuItem
-36470>                        Set psCaption to "SelectEquipo"
+36470>                        Set psCaption to "Equipo"
 36471>
 36471>                        WebRegisterPath ntNavigateBegin oSelectEquipo
 36477>
@@ -216,7 +216,7 @@ Including file: LoginEncryptionKey.inc    (C:\Users\dvdan\Desktop\FutbolWebApp\A
 36484>                    End_Object
 36485>
 36485>                    Object oSelectLigaItem1 is a cWebMenuItem
-36487>                        Set psCaption to "SelectLiga"
+36487>                        Set psCaption to "Liga"
 36488>
 36488>                        WebRegisterPath ntNavigateBegin oSelectLiga
 36494>
@@ -1529,7 +1529,7 @@ Including file: hijoentrenador.fd    (C:\Users\dvdan\Desktop\FutbolWebApp\DDSrc\
 37410>>>>>End_Class
 37411>>>
 37411>>>Object oSelectEntrenador is a cWebView
-37413>>>    Set psCaption to "SelectEntrenador"
+37413>>>    Set psCaption to "Entrenador"
 37414>>>    Set peWebViewStyle to wvsDrilldown
 37415>>>    Set peViewType to vtSelect
 37416>>>    Set piColumnCount to 12
@@ -1744,7 +1744,7 @@ Including file: jugadorposicion.fd    (C:\Users\dvdan\Desktop\FutbolWebApp\DDSrc
 37575>>>>>End_Class
 37576>>>
 37576>>>Object oSelectJugador is a cWebView
-37578>>>    Set psCaption to "SelectJugador"
+37578>>>    Set psCaption to "Jugador"
 37579>>>    Set peWebViewStyle to wvsDrilldown
 37580>>>    Set peViewType to vtSelect
 37581>>>    Set piColumnCount to 12
@@ -1951,7 +1951,7 @@ Including file: posicion.fd    (C:\Users\dvdan\Desktop\FutbolWebApp\DDSrc\posici
 37734>>>>>End_Class
 37735>>>
 37735>>>Object oSelectPosicion is a cWebView
-37737>>>    Set psCaption to "SelectPosicion"
+37737>>>    Set psCaption to "Posicion"
 37738>>>    Set peWebViewStyle to wvsDrilldown
 37739>>>    Set peViewType to vtSelect
 37740>>>    Set piColumnCount to 12
@@ -2114,7 +2114,7 @@ Including file: SelectEquipo.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\S
 37855>>>Use cequipoDataDictionary.dd
 37855>>>
 37855>>>Object oSelectEquipo is a cWebView
-37857>>>    Set psCaption to "SelectEquipo"
+37857>>>    Set psCaption to "Equipo"
 37858>>>    Set peWebViewStyle to wvsDrilldown
 37859>>>    Set peViewType to vtSelect
 37860>>>    Set piColumnCount to 12
@@ -2280,7 +2280,7 @@ Including file: SelectLiga.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\Sel
 37979>>>Use cligaDataDictionary.dd
 37979>>>
 37979>>>Object oSelectLiga is a cWebView
-37981>>>    Set psCaption to "SelectLiga"
+37981>>>    Set psCaption to "Liga"
 37982>>>    Set peWebViewStyle to wvsDrilldown
 37983>>>    Set peViewType to vtSelect
 37984>>>    Set piColumnCount to 12
@@ -3303,7 +3303,7 @@ Including file: Dashboard.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\Dash
 38827>>>        WebSetResponsive piColumnCount rmTabletPortrait to 16
 38828>>>    
 38828>>>        Object oTiles_grp is a cWebGroup
-38830>>>            Set piColumnSpan to 8
+38830>>>            Set piColumnSpan to 13
 38831>>>            Set pbShowBorder to False
 38832>>>            Set pbShowCaption to False
 38833>>>            Set piColumnCount to 12
@@ -3311,7 +3311,7 @@ Including file: Dashboard.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\Dash
 38835>>>
 38835>>>            // 1. Tile de Bienvenida
 38835>>>            Object oWelcomeTile is a cWebHtmlBox
-38837>>>                Set piColumnSpan to 12
+38837>>>                Set piColumnSpan to 13
 38838>>>                Set psCSSClass to "Tile Light"
 38839>>>                Set psHtml to '<div Class="WebCon_Sizer"><div class="Tile_Title">Bienvenido</div></div>'
 38840>>>
@@ -3322,7 +3322,7 @@ Including file: Dashboard.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\Dash
 38846>>>
 38846>>>            // 2. Tile de Jugadores
 38846>>>            Object oJugadoresTile is a cWebHtmlBox
-38848>>>                Set piColumnSpan to 6
+38848>>>                Set piColumnSpan to 4
 38849>>>                Set psCSSClass to "Tile Light"
 38850>>>                Set pbServerOnClick to True
 38851>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Jugadores</div><div class="Tile_Subtitle">Plantilla</div></div>'
@@ -3333,67 +3333,71 @@ Including file: Dashboard.wo    (C:\Users\dvdan\Desktop\FutbolWebApp\AppSrc\Dash
 38858>>>
 38858>>>            // 3. Tile de Entrenadores
 38858>>>            Object oEntrenadoresTile is a cWebHtmlBox
-38860>>>                Set piColumnSpan to 6
+38860>>>                Set piColumnSpan to 4
 38861>>>                Set psCSSClass to "Tile Dark"
 38862>>>                Set pbServerOnClick to True
 38863>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle">Cuerpo Técnico</div></div>'
-38864>>>                Procedure OnClick String sId String sParam
-38867>>>                    Send NavigateForward of oSelectEntrenador oDashboard
-38868>>>                End_Procedure
-38869>>>            End_Object
-38870>>>
-38870>>>            // 4. Tile de Ligas
-38870>>>            Object oLigasTile is a cWebHtmlBox
-38872>>>                Set piColumnSpan to 6
-38873>>>                Set psCSSClass to "Tile LightAlternate"
-38874>>>                Set pbServerOnClick to True
-38875>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Ligas</div><div class="Tile_Subtitle">Competiciones</div></div>'
-38876>>>                Procedure OnClick String sId String sParam
-38879>>>                    Send NavigateForward of oSelectLiga oDashboard
-38880>>>                End_Procedure
-38881>>>            End_Object
-38882>>>
-38882>>>            // 5. Tile de Equipos
-38882>>>            Object oEquiposTile is a cWebHtmlBox
-38884>>>                Set piColumnSpan to 6
-38885>>>                Set psCSSClass to "Tile DarkAlternate"
-38886>>>                Set pbServerOnClick to True
-38887>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Equipos</div><div class="Tile_Subtitle">Clubes</div></div>'
-38888>>>                Procedure OnClick String sId String sParam
-38891>>>                    Send NavigateForward of oSelectEquipo oDashboard
-38892>>>                End_Procedure
-38893>>>            End_Object
-38894>>>
-38894>>>            // 6. Tile de Posiciones
-38894>>>            Object oPosicionesTile is a cWebHtmlBox
-38896>>>                Set piColumnSpan to 6
-38897>>>                Set psCSSClass to "Tile Light"
-38898>>>                Set pbServerOnClick to True
-38899>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Posiciones</div><div class="Tile_Subtitle">Roles</div></div>'
-38900>>>                Procedure OnClick String sId String sParam
-38903>>>                    Send NavigateForward of oSelectPosicion oDashboard
-38904>>>                End_Procedure
-38905>>>            End_Object
-38906>>>
-38906>>>        End_Object // Cierre de oTiles_grp
-38907>>>    End_Object // Cierre de oWebMainPanel
-38908>>>
-38908>>>End_Object // Cierre de oDashboard
-38909>    Set phoDefaultView to oDashboard
-38910>
-38910>End_Object
-38911>
-38911>Send StartWebApp of oWebApp
-38912>
+38864>>>                Set piColumnIndex to 4
+38865>>>                Procedure OnClick String sId String sParam
+38868>>>                    Send NavigateForward of oSelectEntrenador oDashboard
+38869>>>                End_Procedure
+38870>>>            End_Object
+38871>>>
+38871>>>            Object oLigasTile is a cWebHtmlBox
+38873>>>                Set piColumnSpan to 4
+38874>>>                Set psCSSClass to "Tile LightAlternate"
+38875>>>                Set pbServerOnClick to True
+38876>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Ligas</div><div class="Tile_Subtitle">Competiciones</div></div>'
+38877>>>                Set piColumnIndex to 8
+38878>>>                Procedure OnClick String sId String sParam
+38881>>>                    Send NavigateForward of oSelectLiga oDashboard
+38882>>>                End_Procedure
+38883>>>            End_Object
+38884>>>
+38884>>>            // 4. Tile de Ligas
+38884>>>
+38884>>>            // 5. Tile de Equipos
+38884>>>            Object oEquiposTile is a cWebHtmlBox
+38886>>>                Set piColumnSpan to 6
+38887>>>                Set psCSSClass to "Tile DarkAlternate"
+38888>>>                Set pbServerOnClick to True
+38889>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Equipos</div><div class="Tile_Subtitle">Clubes</div></div>'
+38890>>>                Procedure OnClick String sId String sParam
+38893>>>                    Send NavigateForward of oSelectEquipo oDashboard
+38894>>>                End_Procedure
+38895>>>            End_Object
+38896>>>
+38896>>>            // 6. Tile de Posiciones
+38896>>>            Object oPosicionesTile is a cWebHtmlBox
+38898>>>                Set piColumnSpan to 6
+38899>>>                Set psCSSClass to "Tile Light"
+38900>>>                Set pbServerOnClick to True
+38901>>>                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="open"><div class="Tile_Title">Posiciones</div><div class="Tile_Subtitle">Roles</div></div>'
+38902>>>                Set piColumnIndex to 6
+38903>>>                Procedure OnClick String sId String sParam
+38906>>>                    Send NavigateForward of oSelectPosicion oDashboard
+38907>>>                End_Procedure
+38908>>>            End_Object
+38909>>>
+38909>>>        End_Object // Cierre de oTiles_grp
+38910>>>    End_Object // Cierre de oWebMainPanel
+38911>>>
+38911>>>End_Object // Cierre de oDashboard
+38912>    Set phoDefaultView to oDashboard
+38913>
+38913>End_Object
+38914>
+38914>Send StartWebApp of oWebApp
+38915>
 Summary
-Memory Available: 46352502784
+Memory Available: 63062351872
 Total Warnings : 0
 Total Errors   : 0
 Total Symbols  : 25566
 Total Resources: 0
-Total Commands : 38911
+Total Commands : 38914
 Total Windows  : 0
 Total Pages    : 0
-Static Data    : 483251
-Message area   : 260375
+Static Data    : 483187
+Message area   : 260414
 Total Blocks   : 17266
