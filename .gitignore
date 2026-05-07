@@ -1,0 +1,8 @@
+# Ignore executables
+*.exe
+
+# Ignore log files
+*.log
+
+# Ignore data/session files
+*.dat
