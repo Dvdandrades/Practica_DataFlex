@@ -13,6 +13,9 @@ Use cequipoDataDictionary.dd
 Use centrenadorDataDictionary.dd
 
 Object oZoomEntrenador is a cWebView
+    
+    WebRegisterPath ntNavigateForward oSelectEntrenador
+    
     Set piColumnCount to 12
     Set psCaption to "ZoomEntrenador"
     Set peWebViewStyle to wvsDrilldown
@@ -62,7 +65,14 @@ Object oZoomEntrenador is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
-        End_Object 
+        End_Object
+        Object oEntrenadorBtn is a cWebButton
+            Set psCaption to "Ver Entrenadores"
+            WebRegisterPath ntNavigateForward oSelectEntrenador
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

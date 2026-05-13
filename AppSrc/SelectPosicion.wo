@@ -12,6 +12,9 @@ Use cWebColumn.pkg
 Use cposicionDataDictionary.dd
 
 Object oSelectPosicion is a cWebView
+    
+    WebRegisterPath ntNavigateForward oZoomPosicion
+    
     Set psCaption to "Posicion"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect

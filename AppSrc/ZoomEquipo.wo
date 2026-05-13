@@ -12,6 +12,9 @@ Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 
 Object oZoomEquipo is a cWebView
+    
+    WebRegisterPath ntNavigateForward oSelectEquipo
+    
     Set piColumnCount to 12
     Set psCaption to "ZoomEquipo"
     Set peWebViewStyle to wvsDrilldown
@@ -41,7 +44,14 @@ Object oZoomEquipo is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nombre"
-        End_Object 
+        End_Object
+        Object oEquipoBtn is a cWebButton
+            Set psCaption to "Ver Equipos"
+            WebRegisterPath ntNavigateForward oSelectEquipo
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

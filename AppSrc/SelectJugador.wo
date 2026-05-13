@@ -14,6 +14,9 @@ Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
 Object oSelectJugador is a cWebView
+    
+    WebRegisterPath ntNavigateForward oZoomJugador
+    
     Set psCaption to "Jugador"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect

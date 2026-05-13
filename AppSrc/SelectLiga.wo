@@ -12,6 +12,9 @@ Use cWebColumn.pkg
 Use cligaDataDictionary.dd
 
 Object oSelectLiga is a cWebView
+    
+    WebRegisterPath ntNavigateForward oZoomLiga
+    
     Set psCaption to "Liga"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect
