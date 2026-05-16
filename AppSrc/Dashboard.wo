@@ -74,6 +74,7 @@ Object oDashboard is a cWebView
                 End_Procedure
             End_Object
 
+            // 4. Tile de Ligas
             Object oLigasTile is a cWebHtmlBox
                 Set piColumnSpan to 4
                 Set psCSSClass to "Tile LightAlternate"
@@ -85,7 +86,6 @@ Object oDashboard is a cWebView
                 End_Procedure
             End_Object
 
-            // 4. Tile de Ligas
 
             // 5. Tile de Equipos
             Object oEquiposTile is a cWebHtmlBox

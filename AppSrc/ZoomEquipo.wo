@@ -7,13 +7,14 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 
 Object oZoomEquipo is a cWebView
     
-    WebRegisterPath ntNavigateForward oSelectEquipo
+    WebRegisterPath ntNavigateForward oSelectJugador
     
     Set piColumnCount to 12
     Set psCaption to "ZoomEquipo"
@@ -45,11 +46,24 @@ Object oZoomEquipo is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Nombre"
         End_Object
-        Object oEquipoBtn is a cWebButton
-            Set psCaption to "Ver Equipos"
-            WebRegisterPath ntNavigateForward oSelectEquipo
+        
+        Object oSelectParentBtn is a cWebButton
+            Set psCaption to "Ver Liga"
+            Procedure OnClick
+                Send NavigateClose Self
+            End_Procedure
+        End_Object
+        
+        Object oVerJugadoresBtn is a cWebButton
+            Set psCaption to "Ver Plantilla"
+            WebRegisterPath ntNavigateForward oSelectJugador
+        
             Procedure OnClick
                 Send NavigatePath
+            End_Procedure
+        
+            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+                Move nfFromParent to NavigateData.eNavigateType // Indica que la lista de destino debe filtrarse por el equipo actual
             End_Procedure
         End_Object
     End_Object 

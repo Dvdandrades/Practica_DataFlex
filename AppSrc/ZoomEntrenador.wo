@@ -7,14 +7,13 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
 
 Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use centrenadorDataDictionary.dd
 
 Object oZoomEntrenador is a cWebView
-    
-    WebRegisterPath ntNavigateForward oSelectEntrenador
     
     Set piColumnCount to 12
     Set psCaption to "ZoomEntrenador"
@@ -66,13 +65,14 @@ Object oZoomEntrenador is a cWebView
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
         End_Object
+        
         Object oEntrenadorBtn is a cWebButton
-            Set psCaption to "Ver Entrenadores"
-            WebRegisterPath ntNavigateForward oSelectEntrenador
+            Set psCaption to "Volver a la lista"
             Procedure OnClick
-                Send NavigatePath
+                Send NavigateClose Self
             End_Procedure
         End_Object
+        
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
