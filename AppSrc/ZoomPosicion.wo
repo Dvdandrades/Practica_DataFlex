@@ -7,10 +7,12 @@ Use cWebPanel.pkg
 Use cWebMenuGroup.pkg
 Use cWebMenuItem.pkg
 Use cWebForm.pkg
+Use cWebButton.pkg
 
 Use cposicionDataDictionary.dd
 
 Object oZoomPosicion is a cWebView
+    
     Set piColumnCount to 12
     Set psCaption to "ZoomPosicion"
     Set peWebViewStyle to wvsDrilldown
