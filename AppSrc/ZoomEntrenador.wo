@@ -19,7 +19,7 @@ Object oZoomEntrenador is a cWebView
     Set psCaption to "ZoomEntrenador"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtZoom
-    Set pbShowCaption to False
+    Set pbShowCaption to True
     Set Verify_Save_Msg to 0
     Set piMaxWidth to 1024
 
@@ -64,15 +64,7 @@ Object oZoomEntrenador is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nacionalidad"
-        End_Object
-        
-        Object oEntrenadorBtn is a cWebButton
-            Set psCaption to "Volver a la lista"
-            Procedure OnClick
-                Send NavigateClose Self
-            End_Procedure
-        End_Object
-        
+        End_Object   
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup

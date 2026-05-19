@@ -19,15 +19,14 @@ Object oSelectPosicion is a cWebView
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect
     Set piColumnCount to 12
-    Set pbShowCaption to False
+    Set pbShowCaption to True
     Set piMaxWidth to 1024
 
     Object oposicion_DD is a cposicionDataDictionary
     End_Object 
 
-    Set Main_DD To oposicion_DD
-    Set Server  To oposicion_DD
-
+    Set Main_DD to oposicion_DD
+    Set Server  to oposicion_DD
 
     Object oList is a cWebList
         Set piColumnSpan to 0
@@ -64,7 +63,8 @@ Object oSelectPosicion is a cWebView
 
         End_Object 
 
-        WebRegisterPath ntNavigateForward oSelectJugador
+        // Registro de la ruta hacia su propio Zoom en caso de navegación directa
+        WebRegisterPath ntNavigateForward oZoomPosicion
 
         Procedure OnRowClick String sRowId
             tWebNavigateData NavigateData
@@ -72,20 +72,17 @@ Object oSelectPosicion is a cWebView
 
             Case Begin
                 Case (NavigateData.eNavigateType = nfFromParent)
-                    Send NavigateForward of oSelectJugador Self
+                    Send NavigateForward of oZoomPosicion Self
                     Case Break
 
                 Case (NavigateData.eNavigateType = nfFromChild)
+                Case (NavigateData.eNavigateType = nfFromMain)
+                    // Si viene como Lookup desde una vista de Jugador, cerramos devolviendo los datos
                     Send NavigateClose Self
                     Case Break
 
-                Case (NavigateData.eNavigateType = nfFromMain)
-                    Send NavigateForward of oSelectJugador Self
-                    Case Break
-
-                Case Else // must be nfUndefined
-                    Send NavigateForward of oSelectJugador Self
-
+                Case Else // must be nfUndefined (Navegación directa desde menú)
+                    Send NavigateForward of oZoomPosicion Self
             Case End
         End_Procedure
 
@@ -130,24 +127,18 @@ Object oSelectPosicion is a cWebView
 
         Case Begin
             Case (NavigateData.eNavigateType = nfFromParent)
-                // If from parent, this is a constrained drill down
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromChild)
-                // If from child, this is a probably a parent lookup from a Zoom
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromMain)
-                // If from main, this is a probably a main-file lookup from a Zoom
                 WebSet pbRender of oDetailButton to False
                 Case Break
 
-            Case Else // must be nfUndefined
-                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-
+            Case Else 
         Case End
 
     End_Procedure
 
-
-End_Object 
+End_Object
