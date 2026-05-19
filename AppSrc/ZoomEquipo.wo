@@ -20,7 +20,7 @@ Object oZoomEquipo is a cWebView
     Set psCaption to "ZoomEquipo"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtZoom
-    Set pbShowCaption to False
+    Set pbShowCaption to True
     Set Verify_Save_Msg to 0
     Set piMaxWidth to 1024
 
@@ -45,13 +45,6 @@ Object oZoomEquipo is a cWebView
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
             Set psLabel to "Nombre"
-        End_Object
-        
-        Object oSelectParentBtn is a cWebButton
-            Set psCaption to "Ver Liga"
-            Procedure OnClick
-                Send NavigateClose Self
-            End_Procedure
         End_Object
         
         Object oVerJugadoresBtn is a cWebButton
