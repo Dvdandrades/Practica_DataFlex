@@ -68,7 +68,6 @@ Object oSelectEquipo is a cWebView
 
         End_Object 
 
-        // Corregido: Registrar navegación hacia la lista de jugadores de este equipo
         WebRegisterPath ntNavigateForward oSelectJugador
 
         Procedure OnRowClick String sRowId
@@ -82,11 +81,10 @@ Object oSelectEquipo is a cWebView
 
                 Case (NavigateData.eNavigateType = nfFromChild)
                 Case (NavigateData.eNavigateType = nfFromMain)
-                    // Si actúa como buscador (ej: desde ZoomJugador o ZoomEntrenador) volvemos atrás asignando el registro
                     Send NavigateClose Self
                     Case Break
 
-                Case Else // must be nfUndefined
+                Case Else
                     Send NavigateForward of oSelectJugador Self
             Case End
         End_Procedure

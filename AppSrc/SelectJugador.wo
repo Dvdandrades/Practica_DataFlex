@@ -87,7 +87,6 @@ Object oSelectJugador is a cWebView
             Set pbNewLine to True
         End_Object 
 
-        // Corregido: Aquí solo necesitamos ir al detalle del jugador al hacer click
         WebRegisterPath ntNavigateForward oZoomJugador
 
         Procedure OnRowClick String sRowId
@@ -101,11 +100,10 @@ Object oSelectJugador is a cWebView
         
                 Case (NavigateData.eNavigateType = nfFromChild)
                 Case (NavigateData.eNavigateType = nfFromMain)
-                    // Si actuara como selección, regresamos.
                     Send NavigateClose Self
                     Case Break
         
-                Case Else // must be nfUndefined (Acceso directo a lista de jugadores)
+                Case Else
                     Send NavigateForward of oZoomJugador Self
             Case End
         End_Procedure

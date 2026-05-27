@@ -63,7 +63,6 @@ Object oSelectPosicion is a cWebView
 
         End_Object 
 
-        // Registro de la ruta hacia su propio Zoom en caso de navegación directa
         WebRegisterPath ntNavigateForward oZoomPosicion
 
         Procedure OnRowClick String sRowId
@@ -77,11 +76,10 @@ Object oSelectPosicion is a cWebView
 
                 Case (NavigateData.eNavigateType = nfFromChild)
                 Case (NavigateData.eNavigateType = nfFromMain)
-                    // Si viene como Lookup desde una vista de Jugador, cerramos devolviendo los datos
                     Send NavigateClose Self
                     Case Break
 
-                Case Else // must be nfUndefined (Navegación directa desde menú)
+                Case Else
                     Send NavigateForward of oZoomPosicion Self
             Case End
         End_Procedure
