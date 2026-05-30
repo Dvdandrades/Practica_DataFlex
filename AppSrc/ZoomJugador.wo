@@ -74,6 +74,24 @@ Object oZoomJugador is a cWebView
             End_Procedure
         End_Object
         
+        Object oDespedirJugadorBtn is a cWebButton
+            Set psCaption to "Despedir Jugador"
+            Set piColumnSpan to 4
+            Set psCSSClass to "WebButtonIcon WebIcon_Delete"
+
+            Procedure OnClick
+                Handle hoJugadorDD
+            
+                Get Server to hoJugadorDD
+            
+                Set Field_Changed_Value of hoJugadorDD Field jugador.EquipoID to 0
+            
+                Send Request_Save of hoJugadorDD
+            
+                Send ShowInfoBox "El jugador ha sido despedido y ya no pertenece al equipo."
+            End_Procedure
+        End_Object
+        
     End_Object 
 
     Object oActionGroup is a cWebMenuGroup
