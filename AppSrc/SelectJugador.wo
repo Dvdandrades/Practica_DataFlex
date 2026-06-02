@@ -33,6 +33,16 @@ Object oSelectJugador is a cWebView
 
     Object ojugador_DD is a cjugadorDataDictionary
         Set DDO_Server to oequipo_DD
+        
+        Procedure OnConstrain
+            String sNacionalidadFiltro
+            
+            WebGet psFiltroNacionalidad of oFiltrarNacionalidadBtn to sNacionalidadFiltro
+            
+            If (sNacionalidadFiltro <> "") Begin
+                Constrain jugador.Nacionalidad matches (sNacionalidadFiltro + "*")
+            End
+        End_Procedure
     End_Object 
 
     Set Main_DD to ojugador_DD
@@ -142,10 +152,55 @@ Object oSelectJugador is a cWebView
 
         End_Object 
     End_Object 
+    
+    Object oEditPosicionesBtn is a cWebMenuItem
+        Set psCaption to "Editar Posiciones"
+        Set psCSSClass to "WebEditMenuItem"
+
+        WebRegisterPath ntNavigateForward oSelectPosicion
+
+        Procedure OnClick
+            Send NavigatePath
+        End_Procedure
+    End_Object
+    
+    Object oFiltrarNacionalidadBtn is a cWebMenuItem
+        Set psCaption to "Filtrar Nacionalidad"
+        Set psCSSClass to "WebPromptMenuItem" 
+
+        { WebProperty=Client }
+        Property String psFiltroNacionalidad ""
+
+        Procedure OnFilterPromptClose String sValue
+            String sFiltro
+            Move (Trim(sValue)) to sFiltro
+            
+            WebSet psFiltroNacionalidad to sFiltro
+            
+            Send Rebuild_Constraints of ojugador_DD
+            Send MoveToFirstRow of oList
+        End_Procedure
+
+        Procedure OnClick
+            String sCurrentFilter
+            String[] sParams
+            
+            WebGet psFiltroNacionalidad to sCurrentFilter
+            
+            Move sCurrentFilter to sParams[0]
+            Move "Introduzca la Nacionalidad:" to sParams[1]
+            Move (RefProc(OnFilterPromptClose)) to sParams[2]
+            
+            Send ClientAction "showPrompt" sParams
+        End_Procedure
+    End_Object
 
     Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
         WebSet pbRender of oNewButton to True
         WebSet pbRender of oDetailButton to True
+        
+        WebSet psFiltroNacionalidad of oFiltrarNacionalidadBtn to ""
+        Send Rebuild_Constraints of ojugador_DD
 
         Case Begin
             Case (NavigateData.eNavigateType = nfFromParent)
